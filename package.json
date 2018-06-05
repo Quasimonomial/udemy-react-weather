@@ -1,0 +1,7 @@
+{
+  "name": "react-weather",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Travis Herrick <quasimonomial@gmail.com>",
+  "license": "MIT"
+}
