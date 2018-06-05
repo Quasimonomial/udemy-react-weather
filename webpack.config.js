@@ -1,7 +1,15 @@
+var path = require('path');
+
 module.exports = {
   entry: "./app/app.jsx",
   output: {
     filename: "bundle.js"
+  },
+  resolve: {
+    alias: {
+      Main: path.resolve(__dirname, 'app/components/Main.jsx')
+    },
+    extensions: ['.js', '.jsx']
   },
   module: {
     rules: [
