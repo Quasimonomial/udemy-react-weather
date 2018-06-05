@@ -1,14 +1,17 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var {Route, Router, IndexRoute, hashHistory} = require('react-router');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Route, HashRouter, IndexRoute } from 'react-router-dom';
+import Main from './components/Main';
 
-import Main from 'Main';
+document.addEventListener('DOMContentLoaded', () => {
+  const reactRoot = document.getElementById('app');
 
-ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={Main}>
+  ReactDOM.render(<div>
+    <HashRouter>
+      <Route path="/" component={Main}>
 
-    </Route>
-  </Router>,
-  document.getElementById('app')
-);
+      </Route>
+    </HashRouter>
+  </div>,
+  reactRoot);
+})
