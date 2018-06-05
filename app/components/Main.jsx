@@ -1,9 +1,15 @@
-var React = require('react');
+import React from 'react';
+import Nav from 'Nav'
 
-export default class Main extends React.Component {
+class Main extends React.Component {
   render() {
     return (
-      <h2>Hello Main</h2>
+      <div>
+        <h2>Hello Main</h2>
+        <Nav />
+      </div>
     )
   }
 }
+
+export default Main;
