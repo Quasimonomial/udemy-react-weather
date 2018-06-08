@@ -1,4 +1,8 @@
+# Ignore Libraries
 node_modules
 
 # Ignore Compliled Webpack
 dist
+
+# Ignore Secrets
+.env
