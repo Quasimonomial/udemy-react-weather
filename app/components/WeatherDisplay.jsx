@@ -2,8 +2,9 @@ import React from 'react'
 
 class WeatherDisplay extends React.Component {
   render () {
+    var {location, temperature} = this.props;
     return (
-      <h3>WeatherDisplay</h3>
+      <p>It is {temperature} degrees F in {location}</p>
     )
   }
 }
