@@ -5,6 +5,7 @@ module.exports = {
   output: {
     filename: "bundle.js"
   },
+  devtool: 'eval-source-map',
   resolve: {
     alias: {
       About: path.resolve(__dirname, 'app/components/About.jsx'),
