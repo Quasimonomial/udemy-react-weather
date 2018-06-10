@@ -1,4 +1,6 @@
 import React from 'react'
+
+import { getTemp } from 'openWeatherMap'
 import WeatherDisplay from 'WeatherDisplay'
 import WeatherForm from 'WeatherForm'
 
@@ -15,9 +17,13 @@ class Weather extends React.Component {
   }
 
   handleSearch (location) {
-    this.setState({
-      location: location,
-      temperature: 23
+    getTemp(location).then(function (temp) {
+      this.setState({
+        location: location,
+        temperature: temp
+      })
+    }.bind(this), function (err) {
+      alert(err)
     })
   }
 
