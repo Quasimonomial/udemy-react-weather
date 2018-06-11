@@ -1,5 +1,5 @@
-var axios = require('axios');
-var express = require('express');
+const axios = require('axios');
+const express = require('express');
 
 // Brings in our environment variables
 require('dotenv').config()
@@ -9,6 +9,7 @@ const OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/weather';
 // We have only one BE route for our app, in place only to keep our API key secret
 var app = express();
 var router = express.Router();
+const PORT = process.env.PORT || 3000;
 
 router.get('/weather', function(req, res, next) {
   axios.get(OPEN_WEATHER_MAP_URL, {
@@ -28,10 +29,19 @@ router.get('/weather', function(req, res, next) {
   })
 });
 
+// Use HTTP instead of HTTPS
+app.use((req, res, next) => {
+  if (req.headers['x-forwarded-proto'] === 'http') {
+    next();
+  } else {
+    res.redirect('http://' + req.hostname + req.url);
+  }
+})
+
 app.use(express.static('public'));
 app.use(express.static('dist'))
 app.use('/api', router)
 
-app.listen(3000, function () {
-  console.log('Express server is up on port 3000');
+app.listen(PORT, function () {
+  console.log("Express server is up on port " + PORT);
 });
