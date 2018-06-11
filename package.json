@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --history-api-fallback --inline --progress",
-    "devserver": "nodemon server.js"
+    "devserver": "nodemon --inspect server.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
