@@ -1,6 +1,9 @@
 var axios = require('axios');
 var express = require('express');
 
+// Brings in our environment variables
+require('dotenv').config()
+
 const OPEN_WEATHER_MAP_URL = 'http://api.openweathermap.org/data/2.5/weather';
 
 // We have only one BE route for our app, in place only to keep our API key secret
@@ -11,7 +14,7 @@ router.get('/weather', function(req, res, next) {
   axios.get(OPEN_WEATHER_MAP_URL, {
     params: {
       q: req.query.city,
-      appid: '',
+      appid: process.env.OPEN_WEATHER_MAP_API_KEY,
       units: 'imperial'
     }
   }).then((response) => {
