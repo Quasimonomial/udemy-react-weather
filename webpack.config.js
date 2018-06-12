@@ -31,6 +31,5 @@ module.exports = {
         exclude: /(node_modules|bower_components)/
       }
     ]
-  },
-  watch: true
+  }
 }
