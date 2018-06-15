@@ -1,11 +1,25 @@
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
-  entry: "./app/app.jsx",
+  entry: [
+    'script-loader!jquery/dist/jquery.min.js',
+    'script-loader!foundation-sites/dist/js/foundation.min.js',
+    "./app/app.jsx"
+  ],
   output: {
     filename: "bundle.js"
   },
   devtool: 'eval-source-map',
+  externals: {
+    jquery: 'jQuery'
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
+  ],
   resolve: {
     alias: {
       About: path.resolve(__dirname, 'app/components/About.jsx'),
