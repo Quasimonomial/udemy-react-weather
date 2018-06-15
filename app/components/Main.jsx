@@ -14,9 +14,9 @@ class Main extends React.Component {
         <Nav />
 
         <Switch>
+          <Route path="/" component={Weather} exact/>
           <Route path="/about" component={About} />
           <Route path="/examples" component={Examples} />
-          <Route path="/weather" component={Weather} />
         </Switch>
       </div>
     )
