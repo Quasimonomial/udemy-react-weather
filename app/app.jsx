@@ -7,6 +7,9 @@ import Main from 'Main';
 require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css');
 $(document).foundation();
 
+// Load Css
+require('style-loader!css-loader!applicationStyles')
+
 document.addEventListener('DOMContentLoaded', () => {
   const reactRoot = document.getElementById('app');
 
