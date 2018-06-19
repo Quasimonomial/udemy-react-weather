@@ -31,7 +31,7 @@ module.exports = {
       Weather: path.resolve(__dirname, 'app/components/Weather.jsx'),
       WeatherDisplay: path.resolve(__dirname, 'app/components/WeatherDisplay.jsx'),
       WeatherForm: path.resolve(__dirname, 'app/components/WeatherForm.jsx'),
-      applicationStyles: path.resolve(__dirname, 'app/styles/app.css')
+      applicationStyles: path.resolve(__dirname, 'app/styles/app.scss')
     },
     extensions: ['.js', '.jsx']
   },
