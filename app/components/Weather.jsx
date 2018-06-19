@@ -1,4 +1,5 @@
 import React from 'react'
+import queryString from 'query-string'
 
 import { getTemp } from 'openWeatherMap'
 import ErrorModal from 'ErrorModal'
@@ -17,8 +18,32 @@ class Weather extends React.Component {
     this.handleSearch = this.handleSearch.bind(this)
   }
 
+  componentDidMount () {
+    var location = queryString.parse(this.props.location.search).location;
+
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  }
+
+  componentWillReceiveProps (props) {
+    var location = queryString.parse(props.location.search).location;
+
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  }
+
   handleSearch (location) {
-    this.setState({isLoading: true})
+    this.setState({
+      isLoading: true,
+      errorMessage: null,
+      locatoin: null,
+      temperature: null
+    })
+
     getTemp(location).then(function (temp) {
       this.setState({
         isLoading: false,
